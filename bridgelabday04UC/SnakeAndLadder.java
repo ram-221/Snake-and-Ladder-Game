@@ -1,20 +1,21 @@
 package com.bridgelabday04UC;
 
 public class SnakeAndLadder {
-	public static void main(String[] args) {
 
-		System.out.println("Starting of Snake and Ladder Game");
-		//System.out.println("start position "+ startPoint);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
 		final int LADDER = 1;
 		final int SNAKE = 2;
+		int dieRoll = 0;
 		int playerCurrentPosition = 0;
-
-		while( playerCurrentPosition< 100) 
+		while( playerCurrentPosition < 100) 
 		{
+			dieRoll++;
 			int dice = (int)((Math.random()*10) % 6)+1;
-			System.out.println("random number is:" +dice);   
+			System.out.println("Dice Random Number is:" +dice);   
 			int position  = (int)((Math.random()*10) % 3);
+			System.out.println("Position Number is:"+position);
 			if(position == LADDER)
 			{	
 				playerCurrentPosition +=dice;
@@ -33,7 +34,7 @@ public class SnakeAndLadder {
 			{
 				System.out.println("Player are on "+ playerCurrentPosition);
 			}
-
+			System.out.println("Number of time die to win the game:" + dieRoll);
 		}
 	}
 
