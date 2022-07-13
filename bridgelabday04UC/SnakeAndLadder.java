@@ -1,39 +1,40 @@
 package com.bridgelabday04UC;
 
 public class SnakeAndLadder {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		System.out.println("Starting of Snake and Ladder Game");
-		final int NoPlay = 0;
+		//System.out.println("start position "+ startPoint);
+
 		final int LADDER = 1;
 		final int SNAKE = 2;
-		//variables
-		int dice = (int)((Math.random()*10) % 6);
-		int position =(int)((Math.random()*10) %3 );
 		int playerCurrentPosition = 0;
-		switch(position)
-		{
-		case 0: 
-			playerCurrentPosition= NoPlay;
-			System.out.println("No Movement");
-			break;
-		case 1: 
-			playerCurrentPosition = LADDER;
-			playerCurrentPosition +=dice;
-			System.out.println("Ladder move forward " + playerCurrentPosition);
-			break;
-		case 2:
-			playerCurrentPosition =SNAKE ;
-			playerCurrentPosition -=dice;
-			System.out.println("Snakes move backward "+ playerCurrentPosition);
-			break;
-		default :
-			playerCurrentPosition +=dice;
-			System.out.println("Movement to " +playerCurrentPosition );
-		}
 
+		while( playerCurrentPosition< 100) 
+		{
+			int dice = (int)((Math.random()*10) % 6)+1;
+			System.out.println("random number is:" +dice);   
+			int position  = (int)((Math.random()*10) % 3);
+			if(position == LADDER)
+			{	
+				playerCurrentPosition +=dice;
+				if(playerCurrentPosition > 100)
+					playerCurrentPosition -=dice;
+				System.out.println("Ladder move forward "+ playerCurrentPosition);
+			}
+			else if(position == SNAKE)
+			{	
+				playerCurrentPosition -=dice;
+				if(playerCurrentPosition < 0)
+					playerCurrentPosition= 0;
+				System.out.println("Snakes move backward "+ playerCurrentPosition);
+			}
+			else
+			{
+				System.out.println("Player are on "+ playerCurrentPosition);
+			}
+
+		}
 	}
 
 }
